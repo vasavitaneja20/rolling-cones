@@ -1,0 +1,137 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ece7f1;
+  background: #ffffff;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.navbar__logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.navbar__title {
+  color: #2f1c45;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar__link {
+  color: #3f2d55;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar__link:hover {
+  background-color: #f3ecfb;
+}
+
+.navbar__link--active {
+  background-color: #ede2ff;
+  color: #2f1c45;
+}
+
+.navbar__cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navbar__cart-icon {
+  font-size: 1rem;
+}
+
+.navbar__cart-count {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  background: #6d35c7;
+}
+
+.navbar__hamburger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #f5efff;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navbar__hamburger span {
+  width: 18px;
+  height: 2px;
+  background: #3f2d55;
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px 14px;
+  }
+
+  .navbar__title {
+    font-size: 1rem;
+  }
+
+  .navbar__hamburger {
+    display: inline-flex;
+  }
+
+  .navbar__links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0e8fa;
+  }
+
+  .navbar__links--open {
+    display: flex;
+  }
+
+  .navbar__link {
+    text-align: left;
+  }
+}
