@@ -1,0 +1,148 @@
+.menu-page {
+  padding-block: 25px 34px;
+}
+
+.menu-page__header {
+  text-align: left;
+}
+
+.menu-page__title {
+  margin: 0;
+  color: #432712;
+  font-size: 1.8rem;
+  padding-left:20px;
+}
+
+.menu-page__subtitle {
+  margin-top: 8px;
+  color: #6f5033;
+  max-width: 56ch;
+  padding-left:20px;
+}
+
+.menu-page__filters {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+.menu-page__filter {
+  border: 1px solid #d7ab67;
+  border-radius: 999px;
+  background: #fff5de;
+  color: #5d381b;
+  padding: 20px 14px;
+  font-weight: 700;
+}
+
+.menu-page__filter.is-active {
+  background: #f8b451;
+  border-color: #d1842e;
+}
+
+.menu-page__sections {
+  margin-top: 20px;
+  display: grid;
+  gap: 24px;
+  padding-left: 40px;
+}
+
+.menu-page__section-title {
+  margin: 0 0 12px;
+  text-align: left;
+  font-size: 1.35rem;
+  color: #5b3212;
+}
+
+.menu-page__section-title--savory {
+  color: #7a451c;
+}
+
+.menu-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .menu-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .menu-page__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.menu-page {
+  padding: 24px 0 32px;
+  background: #fffdf7;
+}
+
+.menu-page__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menu-page__header {
+  text-align: left;
+}
+
+.menu-page__title {
+  margin: 0;
+  font-size: 1.9rem;
+  color: #432712;
+}
+
+.menu-page__subtitle {
+  margin-top: 6px;
+  color: #755236;
+}
+
+.menu-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.menu-page__filter {
+  border: 1px solid #c89d56;
+  background: #fff5dd;
+  color: #58361c;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+}
+
+.menu-page__filter--active {
+  background: #f8b451;
+  border-color: #d18225;
+  color: #3d220f;
+}
+
+.menu-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .menu-page__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .menu-page {
+    padding: 28px 0 40px;
+  }
+
+  .menu-page__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+}

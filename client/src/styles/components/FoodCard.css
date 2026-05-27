@@ -1,0 +1,111 @@
+.food-card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdf4;
+  border: 1px solid #e8d7a6;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(90, 60, 20, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(90, 60, 20, 0.18);
+}
+
+.food-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f3e2a3;
+}
+
+.food-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  flex: 1;
+}
+
+.food-card__top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.food-card__name {
+  margin: 0;
+  color: #4a2f1a;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.food-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.food-card__badge--sweet {
+  background: #ffeab3;
+  color: #7a4e00;
+}
+
+.food-card__badge--savory {
+  background: #f8ddb5;
+  color: #6b3f10;
+}
+
+.food-card__description {
+  margin: 0;
+  color: #6a4f36;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  min-height: 44px;
+}
+
+.food-card__price {
+  margin: 0;
+  color: #3d250f;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.food-card__button {
+  margin-top: auto;
+  width: 100%;
+  border: 1px solid #8b5e34;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #ffd65a;
+  color: #4a2f1a;
+  font-weight: 700;
+}
+
+.food-card__button:hover:not(:disabled) {
+  background: #ffc933;
+}
+
+.food-card__button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .food-card__image {
+    height: 200px;
+  }
+
+  .food-card__content {
+    padding: 16px;
+  }
+}

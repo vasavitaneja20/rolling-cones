@@ -1,0 +1,187 @@
+.tracking-page{
+
+  padding:40px 0 60px;
+  }
+  
+  .tracking-page__wrapper{
+  
+  max-width:900px;
+  
+  margin:auto;
+  
+  display:flex;
+  
+  flex-direction:column;
+  
+  gap:25px;
+  }
+  
+  .tracking-page__header{
+  
+  text-align:center;
+  }
+  
+  .tracking-page__header h1{
+  
+  margin-bottom:10px;
+  }
+  
+  .tracking-page__info{
+  
+  display:grid;
+  
+  gap:20px;
+  
+  align-items:center;
+  }
+  
+  .tracking-page__status-card{
+  
+  background:white;
+  
+  padding:25px;
+  
+  border-radius:25px;
+  
+  box-shadow:var(--shadow);
+  
+  text-align:center;
+  }
+  
+  .tracking-page__status-card h3{
+  
+  margin:12px 0;
+  
+  color:var(--primary-yellow);
+  }
+  
+  .tracking-page__time{
+  
+  margin-top:15px;
+  
+  padding:12px;
+  
+  background:#fff3cf;
+  
+  border-radius:12px;
+  }
+  
+  .tracking-page__image-container{
+  
+  display:flex;
+  
+  justify-content:center;
+  }
+
+  @keyframes zoom-in-out {
+    0% { transform: scale(1); }      /* Original size */
+    50% { transform: scale(1.05); }   /* Zoomed in (20% larger) */
+    100% { transform: scale(1); }    /* Back to original size */
+  }
+  
+  
+  .tracking-page__image{
+  
+  max-width:300px;
+  animation: zoom-in-out 2s ease-in-out infinite;
+  }
+  
+  .tracking-page__timeline-card{
+  
+  padding:25px;
+  
+  background:white;
+  
+  border-radius:25px;
+  
+  box-shadow:var(--shadow);
+  }
+  
+  .tracking-page__timeline{
+  
+  list-style:none;
+  
+  display:grid;
+  
+  gap:15px;
+  
+  padding:0;
+  }
+  
+  .tracking-page__step{
+  
+  position:relative;
+  
+  display:grid;
+  
+  grid-template-columns:25px 1fr;
+  
+  gap:15px;
+  }
+  
+  .tracking-page__step:not(:last-child)::after{
+  
+  content:"";
+  
+  position:absolute;
+  
+  left:11px;
+  
+  top:28px;
+  
+  height:100%;
+  
+  width:2px;
+  
+  background:#e6cfaa;
+  }
+  
+  .tracking-page__dot{
+  
+  width:22px;
+  height:22px;
+  
+  border-radius:50%;
+  }
+  
+  .tracking-page__step--completed .tracking-page__dot{
+  
+  background:#f4b400;
+  }
+  
+  .tracking-page__step--active .tracking-page__dot{
+  
+  background:#8b5e34;
+  
+  box-shadow:0 0 0 6px rgba(139,94,52,.2);
+  }
+  
+  .tracking-page__step--upcoming .tracking-page__dot{
+  
+  background:#ddd;
+  }
+  
+  @keyframes float{
+  
+  0%{
+  transform:translateY(0);
+  }
+  
+  50%{
+  transform:translateY(-10px);
+  }
+  
+  100%{
+  transform:translateY(0);
+  }
+  
+  }
+  
+  @media(min-width:768px){
+  
+  .tracking-page__info{
+  
+  grid-template-columns:1fr 1fr;
+  }
+  
+  }

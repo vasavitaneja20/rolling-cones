@@ -1,0 +1,175 @@
+.checkout-page {
+  padding-block: 20px 34px;
+}
+
+.checkout-page__header h1 {
+  margin: 0;
+  text-align: left;
+  color: #432712;
+}
+
+.checkout-page__header p {
+  margin-top: 6px;
+  text-align: left;
+  color: #6f5033;
+}
+
+.checkout-page__layout {
+  margin-top: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+.checkout-page__form-card,
+.checkout-page__summary-card {
+  border: 1px solid #e4cd9c;
+  border-radius: 14px;
+  background: #fffdf8;
+  padding: 14px;
+}
+
+.checkout-page__form-card h2,
+.checkout-page__summary-card h2 {
+  margin: 0 0 12px;
+  color: #4d2d14;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.checkout-page__label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  text-align: left;
+  color: #5f3a1e;
+  font-weight: 700;
+}
+
+.checkout-page__input {
+  width: 100%;
+  border: 1px solid #d8b67b;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fffefb;
+  color: #452814;
+  font: inherit;
+}
+
+.checkout-page__input:focus {
+  outline: 2px solid #f4c87f;
+  outline-offset: 2px;
+}
+
+.checkout-page__empty {
+  text-align: left;
+  color: #7c5d44;
+}
+
+.checkout-page__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.checkout-page__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #5b361a;
+}
+
+.checkout-page__total {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #ecdcb6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #3f2411;
+}
+
+.checkout-page__pay-btn {
+  margin-top: 12px;
+  width: 100%;
+  border: 1px solid #cc8331;
+  background: #f8b451;
+  color: #432712;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .checkout-page__layout {
+    grid-template-columns: 1.2fr 0.9fr;
+    align-items: start;
+    gap: 18px;
+  }
+}
+/* payment section */
+
+.checkout-page__payment{
+
+  margin-top:30px;
+  }
+  
+  .checkout-page__payment-card{
+  
+  display:flex;
+  
+  gap:12px;
+  
+  align-items:center;
+  
+  padding:16px;
+  
+  margin-top:12px;
+  
+  border-radius:14px;
+  
+  background:#fff7df;
+  
+  border:2px solid #f0d39a;
+  
+  cursor:pointer;
+  
+  transition:.3s;
+  }
+  
+  .checkout-page__payment-card:hover{
+  
+  transform:translateY(-3px);
+  
+  box-shadow:var(--shadow);
+  }
+  
+  .checkout-page__payment-card input{
+  
+  accent-color:var(--primary-yellow);
+  
+  width:18px;
+  height:18px;
+  }
+  
+  .checkout-page__payment-card p{
+  
+  font-size:.9rem;
+  
+  margin-top:4px;
+  
+  color:#6f5033;
+  }
+  
+  .checkout-page__summary-card{
+  
+  box-shadow:var(--shadow);
+  
+  border:none;
+  }
+  
+  .checkout-page__form-card{
+  
+  box-shadow:var(--shadow);
+  
+  border:none;
+  }

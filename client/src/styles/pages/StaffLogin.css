@@ -1,0 +1,67 @@
+
+.staff-login {
+  padding-block: 20px 34px;
+}
+
+.staff-login__card {
+  margin-top: 16px;
+  max-width: 420px;
+  margin-inline: auto;
+  border-radius: 16px;
+  border: 1px solid #e4cd9c;
+  background: #fffdf8;
+  padding: 18px 16px 20px;
+  box-shadow: 0 10px 22px rgba(82, 51, 25, 0.16);
+}
+
+.staff-login__title {
+  margin: 0;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #432712;
+}
+
+.staff-login__subtitle {
+  margin-top: 6px;
+  text-align: left;
+  color: #6f5033;
+}
+
+.staff-login__label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  text-align: left;
+  color: #5f3a1e;
+  font-weight: 700;
+}
+
+.staff-login__input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #d8b67b;
+  padding: 10px 12px;
+  background: #fffefb;
+  color: #452814;
+  font: inherit;
+}
+
+.staff-login__input:focus {
+  outline: 2px solid #f4c87f;
+  outline-offset: 2px;
+}
+
+.staff-login__button {
+  width: 100%;
+  margin-top: 16px;
+  border: 1px solid #cc8331;
+  background: #f8b451;
+  color: #432712;
+  font-weight: 700;
+}
+
+@media (min-width: 720px) {
+  .staff-login__card {
+    padding: 22px 20px 24px;
+  }
+}

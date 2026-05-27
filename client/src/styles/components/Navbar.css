@@ -1,0 +1,188 @@
+.navbar{
+
+  position:sticky;
+  top:0;
+  z-index:100;
+  
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  
+  padding:14px 24px;
+  
+  background:var(--cream);
+  
+  border-bottom:2px solid #f0d9a7;
+  
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+  }
+  
+  .navbar__brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  }
+  
+  .navbar__logo{
+  
+  width:70px;
+  height:70px;
+  
+  object-fit:contain;
+  
+  border-radius:50%;
+  }
+  
+  .navbar__title{
+  
+  font-size:1.2rem;
+  
+  font-weight:700;
+  
+  color:var(--primary-brown);
+  }
+  
+  .navbar__links{
+  
+  display:flex;
+  
+  align-items:center;
+  
+  gap:14px;
+  }
+  
+  .navbar__link{
+  
+  padding:10px 14px;
+  
+  border-radius:12px;
+  
+  font-weight:600;
+  
+  transition:all .3s ease;
+  }
+  
+  .navbar__link:hover{
+  
+  background:var(--secondary-yellow);
+  
+  transform:translateY(-2px);
+  
+  }
+  
+  .navbar__link--active{
+  
+  background:var(--primary-yellow);
+  
+  }
+  
+  .navbar__cart{
+  
+  display:flex;
+  
+  align-items:center;
+  
+  gap:6px;
+  }
+  
+  .navbar__cart-count{
+  
+  display:flex;
+  
+  justify-content:center;
+  align-items:center;
+  
+  width:22px;
+  height:22px;
+  
+  border-radius:50%;
+  
+  background:var(--primary-brown);
+  
+  color:white;
+  
+  font-size:.8rem;
+  }
+  
+  .navbar__staff{
+  
+  display:flex;
+  
+  align-items:center;
+  justify-content:center;
+  
+  width:42px;
+  height:42px;
+  
+  border-radius:50%;
+  
+  background:var(--primary-brown);
+  
+  color:white;
+  
+  font-size:1.2rem;
+  
+  transition:all .3s ease;
+  }
+  
+  .navbar__staff:hover{
+  
+  background:var(--primary-yellow);
+  
+  color:var(--primary-brown);
+  
+  transform:scale(1.08);
+  }
+  
+  .navbar__hamburger{
+  
+  display:none;
+  
+  border:none;
+  
+  background:transparent;
+  
+  flex-direction:column;
+  
+  gap:4px;
+  }
+  
+  .navbar__hamburger span{
+  
+  width:20px;
+  height:2px;
+  
+  background:var(--primary-brown);
+  }
+  
+  @media(max-width:768px){
+  
+  .navbar{
+  
+  flex-wrap:wrap;
+  
+  padding:12px;
+  }
+  
+  .navbar__hamburger{
+  
+  display:flex;
+  }
+  
+  .navbar__links{
+  
+  display:none;
+  
+  width:100%;
+  
+  flex-direction:column;
+  
+  margin-top:10px;
+  }
+  
+  .navbar__links--open{
+  
+  display:flex;
+  }
+  
+  }

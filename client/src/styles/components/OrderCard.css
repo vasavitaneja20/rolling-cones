@@ -1,0 +1,151 @@
+.order-card {
+  border-radius: 16px;
+  border: 1px solid #e4cd9c;
+  background: #fffdf8;
+  padding: 14px;
+  box-shadow: 0 8px 18px rgba(82, 51, 25, 0.1);
+}
+
+.order-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-card__id {
+  font-weight: 800;
+  color: #432712;
+}
+
+.order-card__status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 1px solid #ecdcb6;
+  color: #5b3417;
+  background: #fffefb;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.order-card__status--progress {
+  border-color: #f0a24b;
+  background: #fff0db;
+  color: #a65418;
+}
+
+.order-card__status--ready {
+  border-color: #6ccf7a;
+  background: #eafff0;
+  color: #2d7a3b;
+}
+
+.order-card__items {
+  margin-top: 12px;
+}
+
+.order-card__section-title {
+  margin: 0 0 8px;
+  text-align: left;
+  color: #4d2d14;
+  font-size: 1rem;
+}
+
+.order-card__muted {
+  margin: 0;
+  color: #7c5d44;
+  text-align: left;
+}
+
+.order-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.order-card__list-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #5c3718;
+  background: rgba(255, 214, 90, 0.08);
+  border: 1px solid rgba(216, 182, 123, 0.35);
+  border-radius: 12px;
+  padding: 9px 10px;
+}
+
+.order-card__item-name {
+  font-weight: 700;
+}
+
+.order-card__item-qty {
+  font-weight: 900;
+  color: #3e2512;
+  white-space: nowrap;
+}
+
+.order-card__footer {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #ecdcb6;
+}
+
+.order-card__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #3f2411;
+}
+
+.order-card__total strong {
+  font-size: 1.05rem;
+}
+
+.order-card__actions {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.order-card__btn {
+  border-radius: 12px;
+  border: 1px solid #d8b67b;
+  background: #fff7e8;
+  color: #4a2d16;
+  font-weight: 900;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.order-card__btn:hover:not(:disabled) {
+  background: #ffeebf;
+}
+
+.order-card__btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.order-card__btn--active {
+  background: #f8b451;
+  border-color: #d1842e;
+}
+
+@media (min-width: 840px) {
+  .order-card {
+    padding: 16px;
+  }
+
+  .order-card__actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
