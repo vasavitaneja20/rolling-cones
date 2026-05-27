@@ -8,7 +8,13 @@ const menuRoutes = require("./routes/menuRoutes");
 
 const orderRoutes = require("./routes/orderRoutes");
 
+const authRoutes = require("./routes/authRoutes");
+
 const app = express();
+
+const http = require("http");
+
+const { Server } = require("socket.io");
 
 connectDB();
 
@@ -19,12 +25,39 @@ app.use("/api/menu", menuRoutes);
 
 app.use("/api/orders", orderRoutes);
 
+app.use("/api/auth", authRoutes);
+
 app.get("/", (req, res) => {
   res.send("Rolling Cones Backend Running");
 });
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
+
+
+// STORE IO INSTANCE
+app.set("io", io);
+
+
+io.on("connection", (socket) => {
+
+  console.log("Client connected");
+
+  socket.on("disconnect", () => {
+    console.log("Client disconnected");
+  });
+
+});
+
+
+server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
