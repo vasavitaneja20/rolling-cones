@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import NavBar from "../components/NavBar";
 import { useCart } from "../context/CartContext";
@@ -6,10 +6,11 @@ import "../styles/pages/Cart.css";
 
 function Cart() {
   const { cartItems, addToCart, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate();
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * (item.quantity || 1),
-    0
+    0,
   );
 
   return (
@@ -57,7 +58,11 @@ function Cart() {
                 <span>₹{totalPrice}</span>
               </div>
 
-              <button type="button" className="cart-page__checkout-btn">
+              <button
+                type="button"
+                className="cart-page__checkout-btn"
+                onClick={() => navigate("/checkout")}
+              >
                 Proceed to Checkout
               </button>
               <button
