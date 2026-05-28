@@ -151,6 +151,7 @@ const updateOrderStatus = async (req, res) => {
     const io = req.app.get("io");
 
     io.emit("orderUpdated", updatedOrder);
+    req.io.emit("orderUpdated", updatedOrder);
 
     res.status(200).json(updatedOrder);
   } catch (error) {
@@ -162,7 +163,6 @@ const updateOrderStatus = async (req, res) => {
 
 const getSingleOrder = async (req, res) => {
   try {
-
     const order = await Order.findOne({
       orderNumber: req.params.id,
     });
@@ -174,13 +174,10 @@ const getSingleOrder = async (req, res) => {
     }
 
     res.status(200).json(order);
-
   } catch (error) {
-
     res.status(500).json({
       message: error.message,
     });
-
   }
 };
 

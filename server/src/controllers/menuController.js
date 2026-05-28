@@ -24,6 +24,7 @@ const addMenuItem = async (req, res) => {
       description,
       price,
       imageUrl,
+      available
     } = req.body;
 
     const newItem = new MenuItem({
@@ -32,6 +33,7 @@ const addMenuItem = async (req, res) => {
       description,
       price,
       imageUrl,
+      available
     });
 
     const savedItem = await newItem.save();

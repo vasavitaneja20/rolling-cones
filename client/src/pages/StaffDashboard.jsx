@@ -1,60 +1,72 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import OrderCard from "../components/OrderCard";
 import { useCart } from "../context/CartContext";
 import "../styles/pages/StaffDashboard.css";
+import API from "../api/axios";
+
+import socket from "../sockets/socket";
 
 function StaffDashboard() {
   const { cartItems } = useCart();
   const [filter, setFilter] = useState("all");
 
-  const [orders, setOrders] = useState([
-    {
-      orderId: "TRC-2026-1081",
-      items: [
-        { name: "Nutella Blast", quantity: 2 },
-        { name: "Cheese Corn Delight", quantity: 1 },
-      ],
-      totalAmount: 520,
-      status: "In Progress",
-    },
-    {
-      orderId: "TRC-2026-1082",
-      items: [{ name: "Banana Split", quantity: 1 }],
-      totalAmount: 190,
-      status: "Ready",
-    },
-    {
-      orderId: "TRC-2026-1083",
-      items: [
-        { name: "Cheese Corn Delight", quantity: 2 },
-        { name: "Pizza Burst", quantity: 1 },
-      ],
-      totalAmount: 480,
-      status: "In Progress",
-    },
-    {
-      orderId: "TRC-2026-1084",
-      items: [{ name: "Spicy Paneer Crunch", quantity: 1 }],
-      totalAmount: 250,
-      status: "Ready",
-    },
-  ]);
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await API.get("/orders");
+
+        setOrders(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
+
+  useEffect(() => {
+    socket.on("orderUpdated", (updatedOrder) => {
+      setOrders((prevOrders) => {
+        const exists = prevOrders.find(
+          (o) => o.orderNumber === updatedOrder.orderNumber,
+        );
+
+        if (!exists) {
+          return [updatedOrder, ...prevOrders];
+        }
+
+        return prevOrders.map((o) =>
+          o.orderNumber === updatedOrder.orderNumber ? updatedOrder : o,
+        );
+      });
+    });
+
+    return () => {
+      socket.off("orderUpdated");
+    };
+  }, []);
 
   const filteredOrders = useMemo(() => {
     if (filter === "all") return orders;
     return orders.filter((o) => {
-      const normalized = (o.status || "").toLowerCase();
-      if (filter === "in-progress") return normalized === "in progress";
+      const normalized = (o.orderStatus || "").toLowerCase();
+      if (filter === "in-progress") return normalized === "in_progress";
       if (filter === "ready") return normalized === "ready";
       return true;
     });
   }, [filter, orders]);
 
-  const setOrderStatus = (orderId, nextStatus) => {
-    setOrders((prev) =>
-      prev.map((o) => (o.orderId === orderId ? { ...o, status: nextStatus } : o))
-    );
+  const setOrderStatus = async (orderId, nextStatus) => {
+    try {
+      await API.put(`/orders/${orderId}/status`, {
+        status: nextStatus,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -66,7 +78,10 @@ function StaffDashboard() {
           <p>Update order status and track what’s ready for pickup.</p>
         </header>
 
-        <div className="staff-dashboard__filters" aria-label="Filter orders by status">
+        <div
+          className="staff-dashboard__filters"
+          aria-label="Filter orders by status"
+        >
           <button
             type="button"
             className={`staff-dashboard__filter ${
@@ -105,13 +120,15 @@ function StaffDashboard() {
           ) : (
             filteredOrders.map((order) => (
               <OrderCard
-                key={order.orderId}
-                orderId={order.orderId}
+                key={order.orderNumber}
+                orderId={order.orderNumber}
                 items={order.items}
                 totalAmount={order.totalAmount}
-                status={order.status}
-                onInProgress={() => setOrderStatus(order.orderId, "In Progress")}
-                onReady={() => setOrderStatus(order.orderId, "Ready")}
+                status={order.orderStatus}
+                onInProgress={() =>
+                  setOrderStatus(order.orderNumber, "in_progress")
+                }
+                onReady={() => setOrderStatus(order.orderNumber, "ready")}
               />
             ))
           )}
