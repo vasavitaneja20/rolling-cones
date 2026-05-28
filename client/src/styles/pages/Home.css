@@ -94,7 +94,7 @@ html {
   border-radius: 22px;
   box-shadow: 0 14px 30px rgba(97, 56, 19, 0.2);
   object-fit: cover;
-  height: 400px;
+  height: 450px;
 }
 .home__section {
   padding: 70px 0;
@@ -120,7 +120,7 @@ html {
   max-width: 450px;
   border-radius: 22px;
   object-fit: cover;
-
+  height: 400px;
   box-shadow: 0 10px 25px rgba(70,40,20,.18);
 
   transition: all .4s ease;

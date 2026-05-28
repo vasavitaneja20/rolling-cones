@@ -81,7 +81,7 @@
   
   
   .tracking-page__image{
-  
+  height: 100px;
   max-width:300px;
   animation: zoom-in-out 2s ease-in-out infinite;
   }

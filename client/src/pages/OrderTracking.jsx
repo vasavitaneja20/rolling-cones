@@ -115,7 +115,7 @@ function OrderTracking() {
             <div className="tracking-page__image-container">
               <img
                 src={isCompleted ? "../src/assets/order-success.png" : "../src/assets/order-tracking.png"}
-                alt={isCompleted ? "Order successful" : "Order tracking"}
+                alt={isCompleted ? "Order Successful" : "Order tracking"}
                 className="tracking-page__image"
               />
             </div>
