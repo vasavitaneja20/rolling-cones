@@ -7,6 +7,7 @@ import Checkout from "./pages/Checkout";
 import OrderTracking from "./pages/OrderTracking";
 import StaffLogin from "./pages/StaffLogin";
 import StaffDashboard from "./pages/StaffDashboard";
+import OrderHistory from "./pages/OrderHistory";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/tracking" element={<OrderTracking />} />
           <Route path="/staff-login" element={<StaffLogin />} />
           <Route path="/staff-dashboard" element={<StaffDashboard />} />
+          <Route path="/order-history" element={<OrderHistory />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

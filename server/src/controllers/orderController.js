@@ -124,8 +124,47 @@ const verifyPayment = async (req, res) => {
   }
 };
 
+// const updateOrderStatus = async (req, res) => {
+//   try {
+//     const validStatuses = ["placed", "in_progress", "ready", "completed"];
+
+//     if (!validStatuses.includes(status)) {
+//       return res.status(400).json({
+//         message: "Invalid status",
+//       });
+//     }
+
+//     const order = await Order.findOne({
+//       orderNumber: req.params.id,
+//     });
+//     if (!order) {
+//       return res.status(404).json({
+//         message: "Order not found",
+//       });
+//     }
+
+//     order.orderStatus = status;
+
+//     const updatedOrder = await order.save();
+
+//     // SOCKET EVENT
+//     const io = req.app.get("io");
+
+//     io.emit("orderUpdated", updatedOrder);
+//     req.io.emit("orderUpdated", updatedOrder);
+
+//     res.status(200).json(updatedOrder);
+//   } catch (error) {
+//     res.status(500).json({
+//       message: error.message,
+//     });
+//   }
+// };
+
 const updateOrderStatus = async (req, res) => {
   try {
+    const { status } = req.body;
+
     const validStatuses = ["placed", "in_progress", "ready", "completed"];
 
     if (!validStatuses.includes(status)) {
@@ -137,6 +176,7 @@ const updateOrderStatus = async (req, res) => {
     const order = await Order.findOne({
       orderNumber: req.params.id,
     });
+
     if (!order) {
       return res.status(404).json({
         message: "Order not found",
@@ -151,7 +191,6 @@ const updateOrderStatus = async (req, res) => {
     const io = req.app.get("io");
 
     io.emit("orderUpdated", updatedOrder);
-    req.io.emit("orderUpdated", updatedOrder);
 
     res.status(200).json(updatedOrder);
   } catch (error) {
@@ -181,6 +220,51 @@ const getSingleOrder = async (req, res) => {
   }
 };
 
+const getOrderHistory =
+  async (req, res) => {
+
+    try {
+
+      const page =
+        parseInt(req.query.page) || 1;
+
+      const limit =
+        parseInt(req.query.limit) || 10;
+
+      const skip =
+        (page - 1) * limit;
+
+      const orders =
+        await Order.find({
+          orderStatus: "completed",
+        })
+          .sort({ createdAt: -1 })
+          .skip(skip)
+          .limit(limit);
+
+      const total =
+        await Order.countDocuments({
+          orderStatus: "completed",
+        });
+
+      res.status(200).json({
+
+        orders,
+
+        hasMore:
+          skip + orders.length < total,
+
+      });
+
+    } catch (error) {
+
+      res.status(500).json({
+        message: error.message,
+      });
+
+    }
+};
+
 module.exports = {
   createOrder,
   getOrders,
@@ -188,4 +272,5 @@ module.exports = {
   verifyPayment,
   updateOrderStatus,
   getSingleOrder,
+  getOrderHistory,
 };
