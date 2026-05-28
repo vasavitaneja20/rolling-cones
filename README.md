@@ -293,6 +293,7 @@ Completed
 # Contributors
 
 * Ashmit Arora
+* Vasavi Taneja
 * Team The Rolling Cones
 
 ---
