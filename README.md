@@ -1,4 +1,3 @@
-````markdown
 # The Rolling Cones
 
 A full-stack real-time waffle ordering platform for **The Rolling Cones**, built using the MERN stack with Razorpay payment integration and live order tracking using Socket.IO.
@@ -72,7 +71,6 @@ Socket.IO ↔ Frontend ↔ Backend
 
 Payments:
 Razorpay Checkout ↔ Backend Verification
-````
 
 ---
 
