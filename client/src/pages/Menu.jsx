@@ -58,7 +58,10 @@ function Menu() {
 
   return (
     <>
-      <Navbar cartCount={cartItems.length} />
+      <Navbar cartCount={cartItems.reduce(
+  (total, item) => total + (item.quantity || 1),
+  0
+)} />
       <main className="menu-page container">
         <header className="menu-page__header">
           <h1 className="menu-page__title">Our Waffle Menu</h1>

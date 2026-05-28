@@ -109,3 +109,72 @@
     padding: 16px;
   }
 }
+/* quantity controls */
+
+.food-card__quantity{
+
+  margin-top:auto;
+  
+  display:flex;
+  
+  align-items:center;
+  
+  justify-content:center;
+  
+  gap:14px;
+  
+  padding:10px;
+  
+  border-radius:12px;
+  
+  background:#fff2cc;
+  
+  }
+  
+  .food-card__quantity-btn{
+  
+  width:38px;
+  height:38px;
+  
+  border:none;
+  
+  border-radius:10px;
+  
+  background:var(--primary-yellow);
+  
+  color:var(--primary-brown);
+  
+  font-size:1.3rem;
+  
+  font-weight:700;
+  
+  display:flex;
+  
+  align-items:center;
+  
+  justify-content:center;
+  
+  cursor:pointer;
+  
+  transition:.3s;
+  }
+  
+  .food-card__quantity-btn:hover{
+  
+  transform:scale(1.08);
+  
+  background:#ffca28;
+  }
+  
+  .food-card__quantity-count{
+  
+  font-size:1.1rem;
+  
+  font-weight:700;
+  
+  color:var(--primary-brown);
+  
+  min-width:20px;
+  
+  text-align:center;
+  }
