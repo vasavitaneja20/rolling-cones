@@ -15,7 +15,10 @@ function Cart() {
 
   return (
     <>
-      <NavBar cartCount={cartItems.length} />
+      <NavBar cartCount={cartItems.reduce(
+  (total, item) => total + (item.quantity || 1),
+  0
+)} />
       <main className="cart-page container">
         <header className="cart-page__header">
           <h1>Your Cart</h1>
@@ -51,7 +54,10 @@ function Cart() {
               <h2>Order Summary</h2>
               <div className="cart-page__summary-row">
                 <span>Items</span>
-                <span>{cartItems.length}</span>
+                <span>{cartItems.reduce(
+  (total, item) => total + (item.quantity || 1),
+  0
+)}</span>
               </div>
               <div className="cart-page__summary-row cart-page__summary-row--total">
                 <span>Total</span>

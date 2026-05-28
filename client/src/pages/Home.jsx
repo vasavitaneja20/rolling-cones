@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import { useCart } from "../context/CartContext";
 import "../styles/pages/Home.css";
 
 
@@ -20,9 +21,13 @@ const slideRight = {
 };
 
 function Home() {
+  const { cartItems } = useCart();
   return (
     <>
-      <NavBar cartCount={0} />
+ <NavBar cartCount={cartItems.reduce(
+  (total, item) => total + (item.quantity || 1),
+  0
+)} />
       <main className="home">
         <section className="home__hero">
           <div className="container home__hero-layout">

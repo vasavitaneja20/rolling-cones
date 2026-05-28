@@ -18,6 +18,7 @@ const getMenuItems = async (req, res) => {
 // ADD MENU ITEM
 const addMenuItem = async (req, res) => {
   try {
+     console.log(req.body);
     const {
       name,
       category,
@@ -39,13 +40,14 @@ const addMenuItem = async (req, res) => {
     const savedItem = await newItem.save();
 
     res.status(201).json(savedItem);
+
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
+      success: false,
       message: error.message,
     });
   }
 };
-
 
 module.exports = {
   getMenuItems,
