@@ -30,6 +30,7 @@ function FoodCard({
         src={imageUrl}
         alt={name}
         className="food-card__image"
+        loading="lazy"
       />
 
       <div className="food-card__content">

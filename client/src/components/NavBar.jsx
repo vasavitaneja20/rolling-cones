@@ -30,7 +30,7 @@ function NavBar({ cartCount = 0 }) {
         </span>
       </Link>
 
-      <button
+     {/* <button
         type="button"
         className="navbar__hamburger"
         aria-label="Toggle navigation menu"
@@ -40,53 +40,47 @@ function NavBar({ cartCount = 0 }) {
         <span />
         <span />
         <span />
-      </button>
+      </button>*/}
 
-      <nav className={`navbar__links ${isMenuOpen ? "navbar__links--open" : ""}`}>
+      <div className="navbar__actions">
 
-        <NavLink
-          to="/menu"
-          className={({ isActive }) =>
-            `navbar__link ${
-              isActive ? "navbar__link--active" : ""
-            }`
-          }
-        >
-          Menu
-        </NavLink>
+<NavLink
+  to="/menu"
+  className={({ isActive }) =>
+    `navbar__floating-btn ${
+      isActive ? "navbar__floating-btn--active" : ""
+    }`
+  }
+>
+  Menu
+</NavLink>
 
-        <NavLink
-          to="/cart"
-          className={({ isActive }) =>
-            `navbar__link navbar__cart ${
-              isActive ? "navbar__link--active" : ""
-            }`
-          }
-        >
-          <span className="navbar__cart-icon">
-            🛒
-          </span>
+<NavLink
+  to="/cart"
+  className={({ isActive }) =>
+    `navbar__floating-btn navbar__cart-btn ${
+      isActive ? "navbar__floating-btn--active" : ""
+    }`
+  }
+>
+  🛒 Cart
+  <span className="navbar__cart-count">
+    {cartCount}
+  </span>
+</NavLink>
 
-          <span>Cart</span>
+<NavLink
+  to="/staff-login"
+  className={({ isActive }) =>
+    `navbar__floating-btn navbar__login-btn ${
+      isActive ? "navbar__floating-btn--active" : ""
+    }`
+  }
+>
+  👤
+</NavLink>
 
-          <span className="navbar__cart-count">
-            {cartCount}
-          </span>
-        </NavLink>
-
-        <NavLink
-          to="/staff-login"
-          className={({ isActive }) =>
-            `navbar__staff ${
-              isActive ? "navbar__link--active" : ""
-            }`
-          }
-        >
-          👤
-        </NavLink>
-
-      </nav>
-
+</div>
     </header>
   );
 }

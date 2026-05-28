@@ -195,7 +195,6 @@ transform:translateY(-5px);
   margin-top: 20px;
   padding: 24px 0;
   background: #402617;
-  color: #f8ebd3;
 }
 
 .home__footer-content {
@@ -204,9 +203,11 @@ transform:translateY(-5px);
 }
 
 .home__footer-brand {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 400;
+  color:  #f6d38c;
 }
+
 
 .home__footer-links,
 .home__socials {
@@ -214,10 +215,13 @@ transform:translateY(-5px);
   flex-wrap: wrap;
   gap: 12px;
 }
+.home__socials a, .home__footer-links {
+  transition: color 0.3s ease;
+  color:  #f6d38c;
+}
 
-.home__footer-links a,
-.home__socials a {
-  color: #f6d38c;
+.home__footer-links a:hover, .home__socials a:hover {
+  color: white;
 }
 
 @media (min-width: 760px) {

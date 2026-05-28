@@ -38,12 +38,10 @@ function Home() {
               animate="show"
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <p className="home__kicker">The Rolling Cones</p>
               <h1 className="home__title">Fresh Sweet &amp; Savory Waffles</h1>
               <p className="home__subtitle">Scan. Order. Enjoy.</p>
               <p className="home__small-text">
-                Made fresh with rich flavors and served hot.
-              </p>
+              At The Rolling Cones, we strive to deliver experiences, not just waffles. Our waffles are inspired and carefully curated with crispy textures, warm fillings, and unforgettable flavors in every bite. From indulgent sweet treats to bold savory bites, The Rolling Cones is committed to giving you one hell of a waffle experience.</p>
               <div className="home__actions">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                   <Link className="home__button home__button--primary" to="/menu">
@@ -66,7 +64,7 @@ function Home() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             >
               <motion.img
-                src="../src/assets/fresh-waffles.webp"
+                src="../src/assets/hero-waffles.jpg"
                 alt="Fresh waffle assortment"
                 className="home__hero-image"
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
@@ -92,10 +90,7 @@ function Home() {
       </h2>
 
       <p className="home__section-description">
-        Our sweet waffles are made for dessert lovers.
-        Rich chocolate, fresh fruits and delicious toppings
-        come together to create unforgettable flavors.
-      </p>
+      Our sweet waffles come with delectable toppings - from creamy delights to fruity flavors, every waffle is prepared fresh to deliver the perfect balance of sweetness and texture. We remain committed to serving comfort and warmth through our signature waffles right from the very first bite.</p>
     </div>
 
   </div>
@@ -109,7 +104,7 @@ function Home() {
 <div className="home__section-image-container">
 
 <img
-src="../src/assets/savory-waffles.webp"
+src="../src/assets/savory-waffles.jpg"
 alt="Savory waffles"
 className="home__section-image"
 />
@@ -124,10 +119,7 @@ Savory Waffles
 
 <p className="home__section-description">
 
-Our savory waffles combine cheese,
-herbs and flavorful ingredients to create
-a satisfying snack experience.
-
+The Rolling Cones started with the idea of bringing the concept of savory waffles from Belgium to the click of a button. Our unique flavors and bold ingredients combine to create the perfect crispy experience we intended to craft for you. Our savory range is designed for those who want something filling, flavorful, and different from the ordinary.
 </p>
 
 </div>
@@ -151,12 +143,7 @@ The Rolling Cones Story
 
 <p className="home__story-text">
 
-The Rolling Cones started as a small idea between
-food lovers who wanted to bring something unique
-and memorable to people. Inspired by street-food
-culture and creative flavors, the goal became
-simple: serve fresh waffles that make people smile.
-
+The Rolling Cones began with a simple idea - curating an experience for everyone with a waffle craving. We serve a variety of sweet and savory waffles to expand the horizons of waffle dishes and introduce something truly memorable. What started as a small concept between food enthusiasts slowly grew into a place where people come together over good food, quick conversations, and waffles made with care. Our commitment to delivering a quality experience is what gave birth to The Rolling Cones.
 </p>
 
 </div>
@@ -167,10 +154,9 @@ simple: serve fresh waffles that make people smile.
 
         <footer className="home__footer">
           <div className="container home__footer-content">
-            <p className="home__footer-brand">The Rolling Cones</p>
+            <p className="home__footer-brand">© 2026 The Rolling Cones. All rights reserved.</p>
             <nav className="home__footer-links" aria-label="Footer links">
               <Link to="/menu">Menu</Link>
-              <Link to="/tracking">Track Order</Link>
               <a href="#contact">Contact</a>
             </nav>
             <div className="home__socials" aria-label="Social links">
