@@ -30,7 +30,7 @@ function OrderHistory() {
 
           const response =
             await API.get(
-              `/orders/history?page=${page}&limit=${LIMIT}`
+              `/api/orders/history?page=${page}&limit=${LIMIT}`
             );
 
           setOrders(

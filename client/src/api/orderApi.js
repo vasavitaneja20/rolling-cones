@@ -7,7 +7,7 @@ export const createOrder = async (
 ) => {
 
   const response = await API.post(
-    "/orders",
+    "/api/orders",
     orderData
   );
 
@@ -20,7 +20,7 @@ export const createRazorpayOrder =
   async (amount) => {
 
     const response = await API.post(
-      "/orders/create-razorpay-order",
+      "/api/orders/create-razorpay-order",
       { amount }
     );
 
@@ -34,7 +34,7 @@ export const verifyPayment = async (
 ) => {
 
   const response = await API.post(
-    "/orders/verify-payment",
+    "/api/orders/verify-payment",
     paymentData
   );
 
