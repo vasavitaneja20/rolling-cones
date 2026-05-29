@@ -101,12 +101,12 @@ function OrderTracking() {
 
               {isCompleted && (
                 <div className="tracking-page__completed-actions">
-                  <p className="tracking-page__thank-you">Enjoy your order! Thank you for choosing us. 🎉</p>
+                  <p className="tracking-page__thank-you">Enjoy your order! Thank you for choosing us.</p>
                   <button 
-                    onClick={() => window.location.href = "/"} 
+                    onClick={() => window.location.href = "/menu"} 
                     className="tracking-page__btn-back"
                   >
-                    Back to Home
+                    Back to Menu
                   </button>
                 </div>
               )}

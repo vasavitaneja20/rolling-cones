@@ -18,7 +18,7 @@ function OrderHistory() {
   const [hasMore, setHasMore] =
     useState(true);
 
-  const LIMIT = 10;
+  const LIMIT = 12;
 
 
   useEffect(() => {

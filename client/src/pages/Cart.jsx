@@ -12,13 +12,19 @@ function Cart() {
     (total, item) => total + item.price * (item.quantity || 1),
     0,
   );
+  const totalQuantity = cartItems.reduce(
+    (total, item) => total + (item.quantity || 1),
+    0,
+  );
 
   return (
     <>
-      <NavBar cartCount={cartItems.reduce(
-  (total, item) => total + (item.quantity || 1),
-  0
-)} />
+      <NavBar
+        cartCount={cartItems.reduce(
+          (total, item) => total + (item.quantity || 1),
+          0,
+        )}
+      />
       <main className="cart-page container">
         <header className="cart-page__header">
           <h1>Your Cart</h1>
@@ -52,15 +58,38 @@ function Cart() {
 
             <aside className="cart-page__summary">
               <h2>Order Summary</h2>
-              <div className="cart-page__summary-row">
-                <span>Items</span>
-                <span>{cartItems.reduce(
-  (total, item) => total + (item.quantity || 1),
-  0
-)}</span>
+
+              {/* Detailed Bill Items Breakdown */}
+              <div className="cart-page__bill-details">
+                {cartItems.map((item) => (
+                  <div
+                    key={`summary-${item.name}-${item.category}`}
+                    className="cart-page__bill-item"
+                  >
+                    <div className="cart-page__bill-item-info">
+                      <span className="cart-page__bill-item-name">
+                        {item.name}
+                      </span>
+                      <span className="cart-page__bill-item-qty">
+                        x {item.quantity || 1}
+                      </span>
+                    </div>
+                    <span className="cart-page__bill-item-price">
+                      ₹{item.price * (item.quantity || 1)}
+                    </span>
+                  </div>
+                ))}
               </div>
+
+              <hr className="cart-page__divider" />
+
+              <div className="cart-page__summary-row">
+                <span>Total Items</span>
+                <span>{totalQuantity}</span>
+              </div>
+
               <div className="cart-page__summary-row cart-page__summary-row--total">
-                <span>Total</span>
+                <span>Total Amount</span>
                 <span>₹{totalPrice}</span>
               </div>
 

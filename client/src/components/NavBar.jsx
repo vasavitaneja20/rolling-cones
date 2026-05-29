@@ -44,7 +44,7 @@ function NavBar({ cartCount = 0 }) {
 
       <div className="navbar__actions">
 
-<NavLink
+{location.pathname !== "/menu" && (<NavLink
   to="/menu"
   className={({ isActive }) =>
     `navbar__floating-btn ${
@@ -53,7 +53,7 @@ function NavBar({ cartCount = 0 }) {
   }
 >
   Menu
-</NavLink>
+</NavLink>)}
 
 <NavLink
   to="/cart"
@@ -69,16 +69,18 @@ function NavBar({ cartCount = 0 }) {
   </span>
 </NavLink>
 
-<NavLink
-  to="/staff-login"
-  className={({ isActive }) =>
-    `navbar__floating-btn navbar__login-btn ${
-      isActive ? "navbar__floating-btn--active" : ""
-    }`
-  }
->
-  👤
-</NavLink>
+{location.pathname === "/" && (
+          <NavLink
+            to="/staff-login"
+            className={({ isActive }) =>
+              `navbar__floating-btn navbar__login-btn ${
+                isActive ? "navbar__floating-btn--active" : ""
+              }`
+            }
+          >
+            👤
+          </NavLink>
+        )}
 
 </div>
     </header>

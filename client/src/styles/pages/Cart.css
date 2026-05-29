@@ -114,3 +114,37 @@
     gap: 18px;
   }
 }
+
+
+/* Detailed Bill View Styles */
+.cart-page__bill-details {
+  margin: 1.5rem 0;
+  max-height: 180px; /* Prevents the summary box from getting too long */
+  overflow-y: auto;  /* Adds a scrollbar for large orders */
+  padding-right: 5px;
+}
+
+.cart-page__bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.cart-page__bill-item-info {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cart-page__bill-item-qty {
+  color: #888;
+  font-weight: 500;
+}
+
+.cart-page__divider {
+  border: 0;
+  border-top: 1px dashed #ccc; /* Gives it a clean receipt style look */
+  margin: 1rem 0;
+}
