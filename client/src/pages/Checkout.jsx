@@ -104,6 +104,7 @@ function Checkout() {
       razor.open();
     } catch (error) {
       console.error(error);
+      console.log("error here at window")
 
       alert("Payment failed");
     } finally {
