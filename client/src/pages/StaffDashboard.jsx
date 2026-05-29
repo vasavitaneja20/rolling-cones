@@ -57,43 +57,58 @@ function StaffDashboard() {
   // }, [historyPage]);
 
   // SOCKET LIVE UPDATES
+  //LALALALALALALALLALALALALALALALALALALALALALA
+  // useEffect(() => {
+  //   socket.on("orderUpdated", (updatedOrder) => {
+  //     // UPDATE ACTIVE ORDERS
+  //     setOrders((prevOrders) => {
+  //       const exists = prevOrders.find(
+  //         (o) => o.orderNumber === updatedOrder.orderNumber,
+  //       );
+
+  //       // REMOVE FROM LIVE IF COMPLETED
+  //       if (updatedOrder.orderStatus === "completed") {
+  //         return prevOrders.filter(
+  //           (o) => o.orderNumber !== updatedOrder.orderNumber,
+  //         );
+  //       }
+
+  //       // NEW ORDER
+  //       if (!exists) {
+  //         return [updatedOrder, ...prevOrders];
+  //       }
+
+  //       // UPDATE EXISTING
+  //       return prevOrders.map((o) =>
+  //         o.orderNumber === updatedOrder.orderNumber ? updatedOrder : o,
+  //       );
+  //     });
+
+  //     // UPDATE HISTORY
+  //     if (updatedOrder.orderStatus === "completed") {
+  //       setHistoryOrders((prev) => [updatedOrder, ...prev]);
+  //     }
+  //   });
+
+  //   return () => {
+  //     socket.off("orderUpdated");
+  //   };
+  // }, []);
+
   useEffect(() => {
-    socket.on("orderUpdated", (updatedOrder) => {
-      // UPDATE ACTIVE ORDERS
-      setOrders((prevOrders) => {
-        const exists = prevOrders.find(
-          (o) => o.orderNumber === updatedOrder.orderNumber,
-        );
+    socket.on("connect", () => {
+      console.log("Connected:", socket.id);
+    });
 
-        // REMOVE FROM LIVE IF COMPLETED
-        if (updatedOrder.orderStatus === "completed") {
-          return prevOrders.filter(
-            (o) => o.orderNumber !== updatedOrder.orderNumber,
-          );
-        }
-
-        // NEW ORDER
-        if (!exists) {
-          return [updatedOrder, ...prevOrders];
-        }
-
-        // UPDATE EXISTING
-        return prevOrders.map((o) =>
-          o.orderNumber === updatedOrder.orderNumber ? updatedOrder : o,
-        );
-      });
-
-      // UPDATE HISTORY
-      if (updatedOrder.orderStatus === "completed") {
-        setHistoryOrders((prev) => [updatedOrder, ...prev]);
-      }
+    socket.on("disconnect", () => {
+      console.log("Disconnected");
     });
 
     return () => {
-      socket.off("orderUpdated");
+      socket.off("connect");
+      socket.off("disconnect");
     };
   }, []);
-
   // FILTER ACTIVE ORDERS
   const filteredOrders = useMemo(() => {
     // ALL ACTIVE
@@ -212,8 +227,6 @@ function StaffDashboard() {
         </section>
 
         {/* HISTORY SECTION */}
-
-        
       </main>
     </>
   );
