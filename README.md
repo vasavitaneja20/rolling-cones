@@ -57,7 +57,6 @@ Customers can scan a QR code, browse sweet and savory waffles, place orders onli
 
 # Project Architecture
 
-```text
 Customer
    ↓
 Frontend (React)
@@ -72,7 +71,6 @@ Socket.IO ↔ Frontend ↔ Backend
 Payments:
 Razorpay Checkout ↔ Backend Verification
 
----
 
 # Folder Structure
 
@@ -80,6 +78,7 @@ Razorpay Checkout ↔ Backend Verification
 root/
 │
 ├── client/
+|   ├── public/
 │   ├── src/
 │   │   ├── api/
 │   │   ├── components/
@@ -88,17 +87,18 @@ root/
 │   │   ├── sockets/
 │   │   ├── styles/
 │   │   └── App.jsx
-│   │
+│   └── index.html
 │   └── package.json
 │
 ├── server/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── utils/
-│   ├── server.js
+|   ├── src/
+│   |   ├── config/
+│   |   ├── controllers/
+│   |   ├── middleware/
+│   |   ├── models/
+│   |   ├── routes/
+│   |   ├── utils/
+│   |   ├── server.js
 │   └── package.json
 │
 └── README.md
@@ -191,21 +191,6 @@ Razorpay Dashboard:
 
 [https://dashboard.razorpay.com/](https://dashboard.razorpay.com/)
 
----
-
-# Socket.IO Real-Time Flow
-
-## Staff Updates Status
-
-```text
-Staff Dashboard
-      ↓
-Backend API
-      ↓
-Socket.IO Emit
-      ↓
-Customer Tracking Page Updates Instantly
-```
 
 ---
 
@@ -252,47 +237,10 @@ Completed
 
 ---
 
-# Future Improvements
-
-* Admin dashboard
-* Inventory management
-* Coupon system
-* Table ordering
-* Kitchen display system
-* PWA support
-* Push notifications
-* Analytics dashboard
-* Multi-store support
-* Dark mode
-
----
-
-# Deployment
-
-## Recommended
-
-### Frontend
-
-* Vercel
-* Netlify
-
-### Backend
-
-* Render
-* Railway
-* AWS EC2
-
-### Database
-
-* MongoDB Atlas
-
----
-
 # Contributors
 
 * Ashmit Arora
 * Vasavi Taneja
-* Team The Rolling Cones
 
 ---
 
