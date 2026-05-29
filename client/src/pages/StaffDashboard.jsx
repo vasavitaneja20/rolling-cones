@@ -58,62 +58,62 @@ function StaffDashboard() {
 
   // SOCKET LIVE UPDATES
   //LALALALALALALALLALALALALALALALALALALALALALA
-  // useEffect(() => {
-  //   socket.on("orderUpdated", (updatedOrder) => {
-  //     // UPDATE ACTIVE ORDERS
-  //     setOrders((prevOrders) => {
-  //       const exists = prevOrders.find(
-  //         (o) => o.orderNumber === updatedOrder.orderNumber,
-  //       );
+  useEffect(() => {
+    socket.on("orderUpdated", (updatedOrder) => {
+      // UPDATE ACTIVE ORDERS
+      setOrders((prevOrders) => {
+        const exists = prevOrders.find(
+          (o) => o.orderNumber === updatedOrder.orderNumber,
+        );
 
-  //       // REMOVE FROM LIVE IF COMPLETED
-  //       if (updatedOrder.orderStatus === "completed") {
-  //         return prevOrders.filter(
-  //           (o) => o.orderNumber !== updatedOrder.orderNumber,
-  //         );
-  //       }
+        // REMOVE FROM LIVE IF COMPLETED
+        if (updatedOrder.orderStatus === "completed") {
+          return prevOrders.filter(
+            (o) => o.orderNumber !== updatedOrder.orderNumber,
+          );
+        }
 
-  //       // NEW ORDER
-  //       if (!exists) {
-  //         return [updatedOrder, ...prevOrders];
-  //       }
+        // NEW ORDER
+        if (!exists) {
+          return [updatedOrder, ...prevOrders];
+        }
 
-  //       // UPDATE EXISTING
-  //       return prevOrders.map((o) =>
-  //         o.orderNumber === updatedOrder.orderNumber ? updatedOrder : o,
-  //       );
-  //     });
+        // UPDATE EXISTING
+        return prevOrders.map((o) =>
+          o.orderNumber === updatedOrder.orderNumber ? updatedOrder : o,
+        );
+      });
 
-  //     // UPDATE HISTORY
-  //     if (updatedOrder.orderStatus === "completed") {
-  //       setHistoryOrders((prev) => [updatedOrder, ...prev]);
-  //     }
-  //   });
+      // UPDATE HISTORY
+      if (updatedOrder.orderStatus === "completed") {
+        setHistoryOrders((prev) => [updatedOrder, ...prev]);
+      }
+    });
 
-  //   return () => {
-  //     socket.off("orderUpdated");
-  //   };
-  // }, []);
+    return () => {
+      socket.off("orderUpdated");
+    };
+  }, []);
 
-useEffect(() => {
-  socket.on("connect", () => {
-    console.log("Connected:", socket.id);
-  });
+// useEffect(() => {
+//   socket.on("connect", () => {
+//     console.log("Connected:", socket.id);
+//   });
 
-  socket.on("disconnect", () => {
-    console.log("Disconnected");
-  });
+//   socket.on("disconnect", () => {
+//     console.log("Disconnected");
+//   });
 
-  socket.on("connect_error", (err) => {
-    console.log("Socket error:", err.message);
-  });
+//   socket.on("connect_error", (err) => {
+//     console.log("Socket error:", err.message);
+//   });
 
-  return () => {
-    socket.off("connect");
-    socket.off("disconnect");
-    socket.off("connect_error");
-  };
-}, []);
+//   return () => {
+//     socket.off("connect");
+//     socket.off("disconnect");
+//     socket.off("connect_error");
+//   };
+// }, []);
 
   // FILTER ACTIVE ORDERS
   const filteredOrders = useMemo(() => {
