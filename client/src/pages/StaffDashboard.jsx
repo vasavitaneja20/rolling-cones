@@ -26,7 +26,7 @@ function StaffDashboard() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await API.get("/api/orders");
+        const response = await API.get("/orders");
 
         setOrders(response.data);
       } catch (error) {
@@ -119,7 +119,7 @@ function StaffDashboard() {
   // UPDATE STATUS
   const setOrderStatus = async (orderId, nextStatus) => {
     try {
-      await API.put(`/api/orders/${orderId}/status`, {
+      await API.put(`/orders/${orderId}/status`, {
         status: nextStatus,
       });
     } catch (error) {
