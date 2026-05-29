@@ -7,8 +7,8 @@ import Checkout from "./pages/Checkout";
 import OrderTracking from "./pages/OrderTracking";
 import StaffLogin from "./pages/StaffLogin";
 import StaffDashboard from "./pages/StaffDashboard";
-import OrderHistory from "./pages/OrderHistory";
-import { CartProvider } from "./context/CartContext";
+import OrderHistory from "./pages/orderHistory";
+import { CartProvider } from "./context/cartContext";
 
 function App() {
   return (
