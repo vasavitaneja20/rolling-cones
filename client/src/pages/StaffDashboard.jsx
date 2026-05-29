@@ -14,7 +14,7 @@ function StaffDashboard() {
 
   const [orders, setOrders] = useState([]);
 
-  // const [historyOrders, setHistoryOrders] = useState([]);
+  const [historyOrders, setHistoryOrders] = useState([]);
 
   // const [historyPage, setHistoryPage] = useState(1);
 
