@@ -4,6 +4,8 @@ import NavBar from "../components/NavBar";
 import socket from "../sockets/socket";
 import API from "../api/axios";
 import "../styles/pages/OrderTracking.css";
+import orderTrackingImage from "../assets/order-tracking.png";
+import orderSuccessImage from "../assets/order-success.png";
 
 const orderSteps = ["Placed", "Preparing", "Ready for Pickup", "Completed"];
 const statusMap = {
@@ -88,7 +90,9 @@ function OrderTracking() {
           </header>
 
           <div className="tracking-page__info">
-            <div className={`tracking-page__status-card ${isCompleted ? 'tracking-page__status-card--success' : ''}`}>
+            <div
+              className={`tracking-page__status-card ${isCompleted ? "tracking-page__status-card--success" : ""}`}
+            >
               <h2>Current Status</h2>
               <h3>{statusUi.title}</h3>
               <p>{statusUi.text}</p>
@@ -101,9 +105,11 @@ function OrderTracking() {
 
               {isCompleted && (
                 <div className="tracking-page__completed-actions">
-                  <p className="tracking-page__thank-you">Enjoy your order! Thank you for choosing us.</p>
-                  <button 
-                    onClick={() => window.location.href = "/menu"} 
+                  <p className="tracking-page__thank-you">
+                    Enjoy your order! Thank you for choosing us.
+                  </p>
+                  <button
+                    onClick={() => (window.location.href = "/menu")}
                     className="tracking-page__btn-back"
                   >
                     Back to Menu
@@ -114,7 +120,7 @@ function OrderTracking() {
 
             <div className="tracking-page__image-container">
               <img
-                src={isCompleted ? "../src/assets/order-success.png" : "../src/assets/order-tracking.png"}
+                src={isCompleted ? orderSuccessImage : orderTrackingImage}
                 alt={isCompleted ? "Order Successful" : "Order tracking"}
                 className="tracking-page__image"
               />
