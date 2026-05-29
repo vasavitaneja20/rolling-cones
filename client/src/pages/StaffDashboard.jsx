@@ -95,25 +95,25 @@ function StaffDashboard() {
     };
   }, []);
 
-// useEffect(() => {
-//   socket.on("connect", () => {
-//     console.log("Connected:", socket.id);
-//   });
+useEffect(() => {
+  socket.on("connect", () => {
+    console.log("Connected:", socket.id);
+  });
 
-//   socket.on("disconnect", () => {
-//     console.log("Disconnected");
-//   });
+  socket.on("disconnect", () => {
+    console.log("Disconnected");
+  });
 
-//   socket.on("connect_error", (err) => {
-//     console.log("Socket error:", err.message);
-//   });
+  socket.on("connect_error", (err) => {
+    console.log("Socket error:", err.message);
+  });
 
-//   return () => {
-//     socket.off("connect");
-//     socket.off("disconnect");
-//     socket.off("connect_error");
-//   };
-// }, []);
+  return () => {
+    socket.off("connect");
+    socket.off("disconnect");
+    socket.off("connect_error");
+  };
+}, []);
 
   // FILTER ACTIVE ORDERS
   const filteredOrders = useMemo(() => {
