@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { useCart } from "../context/CartContext";
+import heroWaffles from "../assets/hero-waffles.jpg";
+import sweetWaffles from "../assets/sweet-waffles.jpg";
+import savoryWaffles from "../assets/savory-waffles.jpg";
 import "../styles/pages/Home.css";
 
 
@@ -64,7 +67,7 @@ function Home() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             >
               <motion.img
-                src="../src/assets/hero-waffles.jpg"
+                src={heroWaffles}
                 alt="Fresh waffle assortment"
                 className="home__hero-image"
                 transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
@@ -78,7 +81,7 @@ function Home() {
 
     <div className="home__section-image-container">
       <img
-        src="../src/assets/sweet-waffles.jpg"
+        src={sweetWaffles}
         alt="Sweet waffles"
         className="home__section-image"
       />
@@ -104,7 +107,7 @@ function Home() {
 <div className="home__section-image-container">
 
 <img
-src="../src/assets/savory-waffles.jpg"
+src={savoryWaffles}
 alt="Savory waffles"
 className="home__section-image"
 />
